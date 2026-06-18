@@ -1,0 +1,250 @@
+/* Global */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1e1e1e, #111, #222);
+    margin: 0;
+    padding: 20px;
+    color: #fff;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+.profile-glass {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto 40px;
+    padding: 25px;
+    border-radius: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-direction: column;
+    text-align: center;
+}
+
+.home-btn {
+    top: 105px;            /* distance from top */
+    left: 0;          /* distance from right */
+    color: white;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+
+.home-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.no-avatar {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(6px);
+}
+
+.avatar-btn {
+    display: inline-block;
+    margin-top: 5px;
+    padding: 6px 12px;
+    background: #ff6b6b;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+
+.mini-avatar {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 5px;
+}
+
+.profile-glass form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 350px;
+}
+
+.profile-glass input {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.2);
+    color: #333;
+}
+
+/* Glass container */
+.glass-box,
+.post-card,
+.post-full,
+.comment,
+.glass-form {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.45);
+}
+
+/* Titles */
+h1, h2 {
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+/* Buttons */
+.add-btn,
+.submit-btn {
+    display: inline-block;
+    padding: 10px 18px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 12px;
+    margin-bottom: 30px;
+    color: #fff;
+    cursor: pointer;
+    transition: .25s ease;
+}
+
+.add-btn:hover,
+.submit-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+/* Feed grid */
+.feed {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+/* Post card */
+.post-card {
+    padding: 12px;
+    transition: .25s ease;
+}
+
+.post-card:hover {
+    transform: translateY(-4px);
+}
+
+.post-card img,
+.post-card video {
+    width: 100%;
+    border-radius: 12px;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+/* Post info */
+.post-info {
+    margin-top: 10px;
+}
+
+.post-info strong {
+    font-size: 16px;
+    color: #fff;
+}
+
+.post-info p {
+    font-size: 14px;
+    color: #ddd;
+}
+
+/* Full post page */
+.post-full {
+    max-width: 650px;
+    margin: auto;
+    padding: 20px;
+}
+
+.post-full img,
+.post-full video {
+    width: 100%;
+    border-radius: 14px;
+    margin-bottom: 15px;
+}
+
+/* Comments */
+.comments {
+    max-width: 650px;
+    margin: 20px auto;
+}
+
+.comment {
+    padding: 12px;
+    margin-bottom: 12px;
+}
+
+.comment strong {
+    color: #ffb347;
+}
+
+/* Glass form */
+.glass-form {
+    max-width: 650px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.glass-form input,
+.glass-form textarea,
+.glass-form select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.05);
+    color: #fff;
+}
+
+.glass-form input::placeholder,
+.glass-form textarea::placeholder {
+    color: #ccc;
+}
+/*delete post*/
+.delete-btn {
+    background: #ff4d4d;
+    color: white;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.delete-btn:hover {
+    background: #e60000;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+}
