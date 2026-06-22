@@ -1,13 +1,15 @@
 <?php
 session_start();
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['user'])) {
     die("Login required");
 }
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Create Avatar</title>
+    <link rel = "stylesheet" href = "portal.css">
 </head>
 <body>
 

@@ -2,10 +2,6 @@
 session_start();
 require "../config.php";
 
-if (!isset($_SESSION['user_id'])) {
-    die("Login required");
-}
-
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     die("Invalid request");
 }
@@ -23,5 +19,5 @@ $stmt = $pdo->prepare("
 ");
 $stmt->execute([$post_id, $_SESSION['user_id'], $content]);
 
-header("Location: ../posts/post.php?id=" . $post_id);
+header("Location: post.php?id=" . $post_id);
 exit;

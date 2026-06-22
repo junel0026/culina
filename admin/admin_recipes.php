@@ -4,7 +4,7 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['is_admin'] != 1) {
     header("Location: index.php");
     exit;
 }
-require "config.php";
+require "../config.php";
 
 // Fetch all recipes
 $stmt = $pdo->query("
@@ -45,7 +45,7 @@ $recipes = $stmt->fetchAll();
             <td><?= $r['id'] ?></td>
 
             <td>
-                <img src="Home Page Photos/<?= $r['image'] ?>" class="table-img">
+                <img src="../Home Page Photos/<?= $r['image'] ?>" class="table-img">
             </td>
 
             <td><?= $r['description'] ?></td>

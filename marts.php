@@ -9,31 +9,50 @@ $marts = $stmt->fetchAll();
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Business Partners</title>
- <link rel="stylesheet" href="style.css?v=3">
+    <title>Our Partner Marts</title>
+    <link rel="stylesheet" href="style.css?v=3">
 </head>
+
 <body>
 
-<h2>Business Partners (Marts)</h2>
-<a class="btn" href="mart_add.php">+ Add New Mart</a>
-<br><br>
+<h2 class="mart-title">Our Partner Marts</h2>
+
+<div class="mart-container">
 
 <?php foreach ($marts as $row): ?>
+
 <div class="mart-card">
-    <?php if ($row['image']): ?>
-        <img src="uploads/marts/<?= $row['image'] ?>" width="150" style="border-radius:8px;"><br><br>
-    <?php endif; ?>
 
-    <h3><?= $row['mart_name'] ?></h3>
-    <p><strong>Address:</strong> <?= $row['address'] ?></p>
-    <p><strong>Phone:</strong> <?= $row['phone'] ?></p>
-    <p><strong>Website:</strong> <a href="<?= $row['website'] ?>" target="_blank"><?= $row['website'] ?></a></p>
+    <div class="mart-row">
 
-    <a class="btn" href="mart_edit.php?id=<?= $row['id'] ?>">Edit</a>
-    <a class="btn delete" href="mart_delete.php?id=<?= $row['id'] ?>">Delete</a>
+        <div class="mart-left">
+            <?php if ($row['image']): ?>
+                <img src="uploads/marts/<?= $row['image'] ?>" alt="<?= $row['mart_name'] ?>" class="mart-img">
+            <?php endif; ?>
+        </div>
+
+        <div class="mart-right">
+            <h3 class="mart-name"><?= $row['mart_name'] ?></h3>
+
+            <div class="mart-info">
+                <p><strong>Address:</strong> <?= $row['address'] ?></p>
+                <p><strong>Phone:</strong> <?= $row['phone'] ?></p>
+                <p><strong>Website:</strong>
+                    <a href="<?= $row['website'] ?>" target="_blank">
+                        <?= $row['website'] ?>
+                    </a>
+                </p>
+            </div>
+        </div>
+
+    </div>
+
 </div>
 
+
 <?php endforeach; ?>
+
+</div>
 
 </body>
 </html>

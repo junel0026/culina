@@ -2,9 +2,6 @@
 session_start();
 require "../config.php";
 
-if (!isset($_SESSION['user_id'])) {
-    die("Login required");
-}
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     die("Invalid request");
@@ -41,7 +38,7 @@ $stmt = $pdo->prepare("
     INSERT INTO posts (user_id, title, description, media_type, media_path)
     VALUES (?, ?, ?, ?, ?)
 ");
-$stmt->execute([$_SESSION['user_id'], $title, $desc, $mediaType, $filename]);
+$stmt->execute([$_SESSION['user']['id'], $title, $desc, $mediaType, $filename]);
 
 header("Location: feed.php");
 exit;

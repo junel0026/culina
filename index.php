@@ -21,6 +21,7 @@ $foods = $stmt->fetchAll();
 <body>
 <h1 class="page-title">Culina Mm</h1>
     <div class="menu_row_for">
+
         <h4><a href="recipe.php" class="menu_item">Recipes</a></h4>
         <h4><a href="marts.php" class="menu_item">Business Partners</a></h4>
 

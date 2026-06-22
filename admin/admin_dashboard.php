@@ -1,7 +1,7 @@
 <?php
 session_start();
-var_dump($_SESSION);
-exit;
+//var_dump($_SESSION);
+//exit;
 
 if (!isset($_SESSION['user']) || $_SESSION['user']['is_admin'] != 1) {
     header("Location: ../index.php");
@@ -30,19 +30,21 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['is_admin'] != 1) {
         <h2>🥕 Ingredients</h2>
     </a>
 
-    <a href="admin_categories.php" class="admin-card">
-        <h2>📂 Categories</h2>
+    <a href="admin_marts.php" class="admin-card">
+        <h2>📂 Business Partners</h2>
     </a>
 
-    <a href="admin_users.php" class="admin-card">
-        <h2>👤 Users</h2>
-    </a>
+<a href="admin_recipe_ingredients.php" class="admin-card">
+    <h2>🥕 Recipe Ingredients</h2>
+    <p>Manage recipe ingredient links</p>
+</a>
+
 
     <a href="cart_logs.php" class="admin-card">
         <h2>🛒 Cart Logs</h2>
     </a>
 
-    <a href="logout.php" class="admin-card logout">
+    <a href="../registration/logout.php" class="admin-card logout">
         <h2>🚪 Logout</h2>
         <p>Sign out of admin</p>
     </a>

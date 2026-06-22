@@ -2,10 +2,9 @@
 session_start();
 require "../config.php";
 
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['user'])) {
     die("Login required");
 }
-
 // ⭐ Check if file exists
 if (!isset($_FILES['avatar']) || $_FILES['avatar']['error'] !== UPLOAD_ERR_OK) {
     die("No file uploaded");

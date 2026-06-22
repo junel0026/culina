@@ -1,6 +1,6 @@
 <?php
 session_start();
-require "config.php";
+require "../config.php";
 
 // Fetch categories for dropdown
 $catStmt = $pdo->query("SELECT * FROM food_categories ORDER BY name ASC");

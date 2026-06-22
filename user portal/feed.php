@@ -10,14 +10,17 @@ if (!isset($_SESSION['user'])) {
 
 $user = $_SESSION['user'];
 
-// Fetch posts
-$stmt = $pdo->query("
+// Fetch posts of the logged-in user
+$stmt = $pdo->prepare("
     SELECT p.*, u.name, u.avatar
     FROM posts p
     JOIN users u ON p.user_id = u.id
+    WHERE p.user_id = :uid
     ORDER BY p.created_at DESC
 ");
+$stmt->execute([':uid' => $user['id']]);
 $posts = $stmt->fetchAll();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -63,9 +66,6 @@ $posts = $stmt->fetchAll();
                 <p><?= nl2br(htmlspecialchars($post['description'])) ?></p>
 
                 <div class="post-user">
-                    <?php if ($post['avatar']): ?>
-                        <img src="../Home Page Photos/<?= $post['avatar'] ?>" class="mini-avatar">
-                    <?php endif; ?>
                     <span>by <?= htmlspecialchars($post['name']) ?></span>
                 </div>
             </div>

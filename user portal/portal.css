@@ -14,6 +14,7 @@ body {
     margin-bottom: 30px;
 }
 .profile-glass {
+    color: white;
     width: 100%;
     max-width: 600px;
     margin: 20px auto 40px;
@@ -91,7 +92,7 @@ body {
     border-radius: 8px;
     border: 1px solid rgba(255,255,255,0.3);
     background: rgba(255,255,255,0.2);
-    color: #333;
+    color: white;
 }
 
 /* Glass container */

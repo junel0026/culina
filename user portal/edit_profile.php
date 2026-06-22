@@ -12,7 +12,7 @@ $user = $_SESSION['user'];
 <html>
 <head>
     <title>Edit Profile</title>
-    <link rel="stylesheet" href="portal.css?v=2">
+    <link rel="stylesheet" href="portal.css?v=3">
 </head>
 <body>
 

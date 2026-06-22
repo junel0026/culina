@@ -1,9 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['user']) || $_SESSION['user']['is_admin'] != 1) {
-    header("Location: index.php");
-    exit;
-}
+
 require "config.php";
 
 $cart = $_SESSION['cart'] ?? [];
@@ -12,7 +9,7 @@ $cart = $_SESSION['cart'] ?? [];
 <html>
 <head>
     <title>Your Cart</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cart.css?v=3">
 </head>
 <body>
 

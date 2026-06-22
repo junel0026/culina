@@ -1,5 +1,5 @@
 <?php
-include 'config.php';
+include '../config.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -8,11 +8,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (!empty($_FILES['image']['name'])) {
         $imageName = time() . "_" . $_FILES['image']['name'];
-        $target = "uploads/marts/" . $imageName;
+        $target = "../uploads/marts/" . $imageName;
 
         // Create folder if not exists
-        if (!is_dir("uploads/marts")) {
-            mkdir("uploads/marts", 0777, true);
+        if (!is_dir("../uploads/marts")) {
+            mkdir("../uploads/marts", 0777, true);
         }
 
         move_uploaded_file($_FILES['image']['tmp_name'], $target);
@@ -30,32 +30,37 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         ':website' => $_POST['website']
     ]);
 
-    header("Location: marts.php");
+    header("Location: admin_marts.php");
+    exit;
 }
 ?>
 
 <!DOCTYPE html>
 <html>
-<head><title>Add Mart</title></head>
+<head>
+    <title>Add Mart</title>
+    <link rel="stylesheet" href="marts.css?v=3">
+</head>
 <body>
 
 <h2>Add Business Partner</h2>
 
-<form method="POST" enctype="multipart/form-data">
-    <label>Mart Name</label><br>
-    <input type="text" name="mart_name" required><br><br>
+<form action="" method="POST" enctype="multipart/form-data">
 
-    <label>Image</label><br>
-    <input type="file" name="image" accept="image/*"><br><br>
+    <label>Mart Name</label>
+    <input type="text" name="mart_name" required>
 
-    <label>Address</label><br>
-    <input type="text" name="address"><br><br>
+    <label>Image</label>
+    <input type="file" name="image" accept="image/*">
 
-    <label>Phone</label><br>
-    <input type="text" name="phone"><br><br>
+    <label>Address</label>
+    <input type="text" name="address">
 
-    <label>Website</label><br>
-    <input type="text" name="website"><br><br>
+    <label>Phone</label>
+    <input type="text" name="phone">
+
+    <label>Website</label>
+    <input type="text" name="website">
 
     <button type="submit">Save</button>
 </form>

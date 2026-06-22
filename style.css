@@ -606,6 +606,57 @@ body {
 }
 
 /*marts*/
+/* Two-column layout inside mart card */
+.mart-row {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+/* Left column (image) */
+.mart-left {
+    flex: 0 0 120px; /* fixed width */
+}
+
+.mart-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+/* Right column (info) */
+.mart-right {
+    flex: 1;
+}
+
+/* Name */
+.mart-name {
+    margin: 0 0 8px 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+}
+
+/* Info text */
+.mart-info {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #ddd;
+}
+
+.mart-info a {
+    color: #ffb347;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.mart-info a:hover {
+    text-decoration: underline;
+}
+
 .mart-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -620,6 +671,7 @@ body {
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.15);
     transition: 0.3s;
+    margin-bottom: 40px;
 }
 
 .mart-card:hover {
@@ -630,12 +682,13 @@ body {
 /* Mart Image */
 .mart-card img {
     width: 100%;
-    height: 160px;
+    height: 130px;
     object-fit: cover;
     border-radius: 12px;
     margin-bottom: 15px;
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
+
 
 /* Titles */
 .mart-card h3 {
@@ -682,6 +735,7 @@ body {
 .add-btn:hover {
     background: rgba(0, 200, 120, 1);
 }
+
 
 /* Responsive */
 @media (max-width: 480px) {

@@ -85,7 +85,7 @@ $comments = $cstmt->fetchAll();
 </div>
 
 <?php if (isset($_SESSION['user'])): ?>
-    <form method="POST" action="../comments/add_comment.php" class="glass-form">
+    <form method="POST" action="add_comment.php" class="glass-form">
         <input type="hidden" name="post_id" value="<?= $post['id'] ?>">
         <textarea name="content" rows="3" placeholder="Write a comment..." required></textarea>
         <button type="submit" class="submit-btn">Comment</button>

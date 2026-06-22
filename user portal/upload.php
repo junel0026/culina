@@ -3,10 +3,6 @@ session_start();              // 1️⃣ Start session FIRST
 require "../config.php";      // 2️⃣ Load DB connection
 
 // 3️⃣ Check login
-if (!isset($_SESSION['user_id'])) {
-    header("Location: /culina/registration/login.php");
-    exit;
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,15 +16,17 @@ if (!isset($_SESSION['user_id'])) {
 
 <form method="POST" action="save_upload.php" enctype="multipart/form-data" class="glass-form">
     <label>Title</label>
-    <input type="text" name="title" required>
+    <input type="text" name="title">
 
     <label>Description</label>
     <textarea name="description" rows="4"></textarea>
 
     <label>Media (image or video)</label>
-    <input type="file" name="media" accept="image/*,video/*" required>
+    <input type="file" name="media" accept="image/*,video/*" >
 
     <button type="submit" class="submit-btn">Upload</button>
+    <a href="feed.php" class="submit-btn">Cancel</a>
+
 </form>
 
 </body>

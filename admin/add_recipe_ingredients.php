@@ -1,58 +1,76 @@
 <?php
-require "config.php";
+session_start();
+require "../config.php";
 
-/*
- * If this file is opened via GET (link, refresh, direct URL),
- * don't die with "Invalid request method" — just send the user back.
- */
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    $recipe_id = $_GET['recipe_id'] ?? null;
-    if ($recipe_id) {
-        header("Location: edit_recipe_ingredients.php?recipe_id=" . $recipe_id);
-        exit;
-    }
+// Fetch recipes
+$recipes = $pdo->query("SELECT id, description FROM foods ORDER BY description")->fetchAll();
 
-    // Debug fallback: show what actually came in
-    echo "This page must be called from the form (POST).<br>";
-    echo "REQUEST_METHOD = " . $_SERVER['REQUEST_METHOD'] . "<br>";
-    echo "<pre>";
-    var_dump($_GET, $_POST);
-    echo "</pre>";
-    exit;
-}
+// Fetch ingredients
+$ingredients = $pdo->query("SELECT id, name FROM new_ingredients ORDER BY name")->fetchAll();
 
-$recipe_id     = $_POST['recipe_id']     ?? null;
-$ingredient_id = $_POST['ingredient_id'] ?? null;
-$qty           = $_POST['qty']           ?? null;
+// Handle form submit
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-if (!$recipe_id || !$ingredient_id) {
-    die("Missing recipe or ingredient");
-}
+    $recipe_id = $_POST['recipe_id'];
+    $ingredient_id = $_POST['ingredient_id'];
+    $qty = $_POST['qty'];
 
-// Prevent duplicates
-$check = $pdo->prepare("
-    SELECT COUNT(*)
-    FROM recipe_ingredients
-    WHERE recipe_id = ? AND ingredient_id = ?
-");
-$check->execute([$recipe_id, $ingredient_id]);
-
-if ($check->fetchColumn() > 0) {
-    // Update instead of duplicate
-    $update = $pdo->prepare("
-        UPDATE recipe_ingredients
-        SET qty = ?
-        WHERE recipe_id = ? AND ingredient_id = ?
-    ");
-    $update->execute([$qty, $recipe_id, $ingredient_id]);
-} else {
-    // Insert new
+    // Insert into recipe_ingredients
     $stmt = $pdo->prepare("
         INSERT INTO recipe_ingredients (recipe_id, ingredient_id, qty)
         VALUES (?, ?, ?)
     ");
     $stmt->execute([$recipe_id, $ingredient_id, $qty]);
-}
 
-header("Location: edit_recipe_ingredients.php?recipe_id=" . $recipe_id);
-exit;
+    header("Location: admin_ingredients.php");
+    exit;
+}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Recipe Ingredient</title>
+    <link rel="stylesheet" href="admin.css?v=7">
+</head>
+<body>
+
+<h1 class="admin-title">➕ Add Recipe Ingredient</h1>
+
+<div class="admin-container glass-box">
+
+    <form method="POST" action="add_recipe_ingredients.php" class="glass-form">
+
+        <!-- Recipe Dropdown -->
+        <label>Recipe</label>
+        <select name="recipe_id" required class="glass-input">
+            <option value="">Select Recipe</option>
+            <?php foreach ($recipes as $r): ?>
+                <option value="<?= $r['id'] ?>">
+                    <?= htmlspecialchars($r['description']) ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+
+        <!-- Ingredient Dropdown -->
+        <label>Ingredient</label>
+        <select name="ingredient_id" required class="glass-input">
+            <option value="">Select Ingredient</option>
+            <?php foreach ($ingredients as $i): ?>
+                <option value="<?= $i['id'] ?>">
+                    <?= htmlspecialchars($i['name']) ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+
+        <!-- Quantity -->
+        <label>Quantity</label>
+        <input type="text" name="qty" class="glass-input" placeholder="e.g. 2 cups" required>
+
+        <button type="submit" class="add-btn">Add Ingredient</button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

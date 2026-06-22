@@ -1,0 +1,221 @@
+/* ===== FONT ===== */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap');
+
+/* ===== GLOBAL ===== */
+body {
+    background: linear-gradient(135deg, #1E1E1E, #111, #222);
+    color: white;
+    font-family: 'Josefin Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* ===== MART TITLE ===== */
+.mart-title {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 28px;
+    font-weight: 600;
+    color: #fff;
+}
+
+/* ===== MART GRID ===== */
+.mart-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* ===== GLASS MART CARD ===== */
+.mart-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 18px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    transition: 0.25s ease;
+    margin-bottom: 20px;
+}
+
+.mart-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* ===== MART IMAGE ===== */
+.mart-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+/* ===== MART NAME ===== */
+.mart-name {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+}
+
+/* ===== MART INFO ===== */
+.mart-info {
+    text-align: left;
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #ddd;
+}
+
+.mart-info a {
+    color: #ffb347;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.mart-info a:hover {
+    text-decoration: underline;
+}
+
+/* ===== PAGE TITLE (EDIT + ADD) ===== */
+h2 {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 32px;
+    font-weight: 700;
+    color: #fff;
+}
+
+/* ===== FORM CONTAINER (EDIT + ADD) ===== */
+form {
+    width: 90%;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* ===== LABELS ===== */
+label {
+    font-size: 15px;
+    font-weight: 600;
+    color: #ffb347;
+}
+
+/* ===== INPUTS ===== */
+input[type="text"],
+input[type="file"] {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: #fff;
+    font-size: 15px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: 0.25s ease;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* ===== IMAGE PREVIEW (EDIT PAGE) ===== */
+img {
+    border-radius: 12px;
+    border: 2px solid rgba(255,255,255,0.2);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+/* ===== SUBMIT BUTTON ===== */
+button {
+    padding: 12px;
+    background: rgba(0, 200, 255, 0.7);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+button:hover {
+    background: rgba(0, 200, 255, 1);
+    transform: translateY(-2px);
+}
+/* ============================
+   ADD NEW MART BUTTON
+   ============================ */
+.add-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #ffb347, #ff9f1c);
+    color: #111;
+    font-weight: 600;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: 0.25s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.add-btn:hover {
+    background: linear-gradient(135deg, #ff9f1c, #ff7a00);
+    transform: translateY(-3px);
+}
+
+
+/* ============================
+   GENERAL BUTTON (EDIT)
+   ============================ */
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    transition: 0.25s ease;
+    backdrop-filter: blur(8px);
+}
+
+.btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+
+/* ============================
+   DELETE BUTTON
+   ============================ */
+.btn.delete {
+    background: rgba(255, 50, 50, 0.25);
+    border: 1px solid rgba(255, 80, 80, 0.4);
+    color: #ff6b6b;
+}
+
+.btn.delete:hover {
+    background: rgba(255, 50, 50, 0.4);
+    color: white;
+    transform: translateY(-2px);
+}
